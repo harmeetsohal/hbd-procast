@@ -1,0 +1,58 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.hbdprocast.billing'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.hbdprocast.billing"
+        minSdk 23
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+
+        // Required for AndroidX
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            applicationIdSuffix ""
+        }
+        release {
+            debuggable false
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // Use debug signing for unsigned release in CI
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    packaging {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/NOTICE', 'META-INF/LICENSE.txt', 'META-INF/NOTICE.txt']
+        }
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.webkit:webkit:1.11.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+}

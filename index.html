@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="theme-color" content="#0b2160"/>
+  <title>HBD PROCAST – GST Billing</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html,body,#root{height:100%;width:100%;overflow:hidden;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0b2160;}
+    #splash{position:fixed;inset:0;background:#0b2160;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;z-index:9999;transition:opacity 0.6s;}
+    #splash.hide{opacity:0;pointer-events:none;}
+    #splash img{width:140px;margin-bottom:20px;filter:drop-shadow(0 0 20px rgba(255,255,255,0.3));}
+    #splash h1{color:#fff;font-size:22px;font-weight:800;letter-spacing:2px;}
+    #splash p{color:#7eb3ff;font-size:12px;letter-spacing:3px;margin-top:6px;}
+    #splash .loader{margin-top:30px;width:48px;height:4px;background:rgba(255,255,255,0.15);border-radius:4px;overflow:hidden;}
+    #splash .loader::after{content:'';display:block;width:40%;height:100%;background:#4a90d9;border-radius:4px;animation:ld 1.2s ease-in-out infinite;}
+    @keyframes ld{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}
+  </style>
+</head>
+<body>
+  <div id="splash">
+    <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#4a90d9"/>
+          <stop offset="100%" style="stop-color:#7eb3ff"/>
+        </linearGradient>
+      </defs>
+      <polygon points="60,8 112,34 112,86 60,112 8,86 8,34" fill="none" stroke="url(#g1)" stroke-width="3"/>
+      <polygon points="60,20 100,40 100,80 60,100 20,80 20,40" fill="rgba(74,144,217,0.15)" stroke="url(#g1)" stroke-width="1.5"/>
+      <text x="60" y="56" text-anchor="middle" fill="url(#g1)" font-size="18" font-weight="900" font-family="Arial">HBD</text>
+      <text x="60" y="74" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="700" font-family="Arial" letter-spacing="1">PROCAST</text>
+    </svg>
+    <h1>HBD PROCAST</h1>
+    <p>CASTING THE FUTURE</p>
+    <div class="loader"></div>
+  </div>
+  <div id="root"></div>
+  <script src="bundle.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      setTimeout(function(){
+        var s=document.getElementById('splash');
+        if(s)s.classList.add('hide');
+        setTimeout(function(){if(s)s.remove();},700);
+      },1800);
+    });
+    // Android back button support via Capacitor
+    document.addEventListener('backbutton',function(e){
+      e.preventDefault();
+      if(window._hbdGoBack){window._hbdGoBack();}
+    },false);
+  </script>
+</body>
+</html>

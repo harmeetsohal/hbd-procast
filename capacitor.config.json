@@ -1,0 +1,28 @@
+{
+  "appId": "com.hbdprocast.billing",
+  "appName": "HBD ProBill",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "backgroundColor": "#0b2160",
+  "android": {
+    "buildOptions": {
+      "releaseType": "APK"
+    },
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "launchAutoHide": true,
+      "backgroundColor": "#0b2160",
+      "androidSplashResourceName": "splash",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "Dark",
+      "backgroundColor": "#0b2160"
+    }
+  }
+}

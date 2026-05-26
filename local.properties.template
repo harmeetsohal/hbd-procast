@@ -1,0 +1,6 @@
+# Copy this file to local.properties for local development
+# Replace with your actual Android SDK path
+# GitHub Actions sets ANDROID_HOME automatically - this file is NOT needed in CI
+
+sdk.dir=/home/YOUR_USERNAME/Android/Sdk
+# Windows: sdk.dir=C\:\\Users\\YOUR_USERNAME\\AppData\\Local\\Android\\Sdk
